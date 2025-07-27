@@ -32,6 +32,6 @@ export const getGreeting = (message) => {
   }
 
   if (hour >= 24 && hour < 6) {
-    return "Madrugando novamente senhor?";
+    return "Trabalhado até mais tarde novamente senhor?";
   }
 };
