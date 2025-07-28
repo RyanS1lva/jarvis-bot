@@ -6,7 +6,7 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 
-import { getGreeting, getWeather } from "./src/utils/index.js";
+import { getGreeting, getWeather, respondToThank } from "./src/utils/index.js";
 
 const discordClient = new Client({
   intents: [
@@ -52,11 +52,13 @@ discordClient.on("ready", () => {
 discordClient.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
-  const greeting = getGreeting(message);
+  getGreeting(message);
 
   if (greeting) {
     message.channel.send(greeting);
   }
+
+  respondToThank(message);
 });
 
 discordClient.on("interactionCreate", async (interaction) => {
