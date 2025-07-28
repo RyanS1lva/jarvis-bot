@@ -13,7 +13,7 @@ export const getWeather = async (interaction) => {
     const weather = data.weather[0].description;
     const temperature = data.main.temp;
 
-    const weatherMessage = `No momento está ${weather} em ${city},\ncom temperatura de ${temperature} °C`;
+    const weatherMessage = `No momento consta ${weather} em ${city},\ncom temperatura de ${temperature} °C`;
 
     await interaction.reply(weatherMessage);
   } catch (e) {
