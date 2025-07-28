@@ -9,7 +9,7 @@ export const getWeather = async (interaction) => {
     );
 
     const data = response.data;
-    console.log(data);
+
     const weather = data.weather[0].description;
     const temperature = data.main.temp;
 
@@ -25,10 +25,23 @@ export const getWeather = async (interaction) => {
       advice = "Temperatura agradável! pode colocar uma manga curta 😎";
     } else {
       advice =
-        "Ta calorzinho 🥵! considere usar roupas de tecido leve e manga curta";
+        "Ta calorzinho 🥵! considere usar roupas de tecido leve e manga curta,\nnão esqueça de hidratar-se 🥤";
     }
 
-    const weatherMessage = `No momento consta ${weather} em ${city}, com temperatura de ${temperature} °C.\n${advice}`;
+    const isRaining = () => {
+      const rainStates = ["Rain", "Drizzle", "Thunderstorm"];
+      if (rainStates.includes(data.weather[0].main)) {
+        return true;
+      }
+
+      return false;
+    };
+
+    if (isRaining()) {
+      advice = advice + "\ne não esqueça do guarda-chuva ☂️";
+    }
+
+    const weatherMessage = `No momento consta ${weather} em ${city} com temperatura de ${temperature} °C.\n${advice}`;
 
     await interaction.reply(weatherMessage);
   } catch (e) {
