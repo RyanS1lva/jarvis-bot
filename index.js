@@ -54,10 +54,6 @@ discordClient.on("messageCreate", (message) => {
 
   getGreeting(message);
 
-  if (greeting) {
-    message.channel.send(greeting);
-  }
-
   respondToThank(message);
 });
 

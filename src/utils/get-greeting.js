@@ -14,12 +14,12 @@ export const getGreeting = (message) => {
   const hour = now.getHours();
 
   if (hour >= 6 && hour < 12) {
-    return "Bom dia, senhor.";
+    message.channel.send("Bom dia, senhor.");
   } else if (hour >= 12 && hour < 18) {
-    return "Boa tarde, senhor.";
+    message.channel.send("Boa tarde, senhor.");
   } else if (hour >= 18 && hour < 24) {
-    return "Boa noite, senhor.";
+    message.channel.send("Boa noite, senhor.");
+  } else {
+    message.channel.send("Trabalhado até mais tarde novamente senhor?");
   }
-
-  return "Trabalhado até mais tarde novamente senhor?";
 };
