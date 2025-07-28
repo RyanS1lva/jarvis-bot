@@ -25,7 +25,7 @@ export const getWeather = async (interaction) => {
       advice = "Temperatura agradável! pode colocar uma manga curta 😎";
     } else {
       advice =
-        "Ta calorzinho 🥵! considere usar roupas de tecido leve e manga curta,\nnão esqueça de hidratar-se 🥤";
+        "Está quente lá fora 🥵! considere usar roupas de tecido leve e manga curta,\nnão esqueça de hidratar-se 🥤";
     }
 
     const isRaining = () => {
