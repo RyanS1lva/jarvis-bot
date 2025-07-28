@@ -15,13 +15,9 @@ export const getGreeting = (message) => {
 
   if (hour >= 6 && hour < 12) {
     return "Bom dia, senhor.";
-  }
-
-  if (hour >= 12 && hour < 18) {
+  } else if (hour >= 12 && hour < 18) {
     return "Boa tarde, senhor.";
-  }
-
-  if (hour >= 18 && hour < 24) {
+  } else if (hour >= 18 && hour < 24) {
     return "Boa noite, senhor.";
   }
 

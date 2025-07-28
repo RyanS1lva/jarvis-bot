@@ -9,11 +9,26 @@ export const getWeather = async (interaction) => {
     );
 
     const data = response.data;
-
+    console.log(data);
     const weather = data.weather[0].description;
     const temperature = data.main.temp;
 
-    const weatherMessage = `No momento consta ${weather} em ${city},\ncom temperatura de ${temperature} °C`;
+    let advice = "";
+
+    if (temperature < 10) {
+      advice =
+        "Está frio lá fora 🥶, recomendo que não saia de casa sem estar bem agasalhado ❄️🧣";
+    } else if (temperature >= 10 && temperature < 18) {
+      advice =
+        "Está fresquinho lá fora 🍃, recomendo que leve um casaquinho se for sair 🧥";
+    } else if (temperature >= 18 && temperature < 24) {
+      advice = "Temperatura agradável! pode colocar uma manga curta 😎";
+    } else {
+      advice =
+        "Ta calorzinho 🥵! considere usar roupas de tecido leve e manga curta";
+    }
+
+    const weatherMessage = `No momento consta ${weather} em ${city}, com temperatura de ${temperature} °C.\n${advice}`;
 
     await interaction.reply(weatherMessage);
   } catch (e) {
