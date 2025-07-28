@@ -5,9 +5,8 @@ import {
   Routes,
   SlashCommandBuilder,
 } from "discord.js";
-import { getGreeting } from "./src/utils/greetings.js";
 
-import axios from "axios";
+import { getGreeting, getWeather } from "./src/utils/index.js";
 
 const discordClient = new Client({
   intents: [
@@ -63,24 +62,6 @@ discordClient.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   if (interaction.commandName === "tempo") {
-    const city = interaction.options.getString("cidade");
-
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},BR&appid=${process.env.WEATHER_API_KEY}&units=metric&lang=pt_br`
-      );
-
-      const data = response.data;
-
-      const weather = data.weather[0].description;
-      const temperature = data.main.temp;
-
-      const weatherMessage = `No momento está ${weather} em ${city},
-com temperatura de ${temperature} °C`;
-
-      await interaction.reply(weatherMessage);
-    } catch (e) {
-      console.log(e);
-    }
+    getWeather(interaction);
   }
 });

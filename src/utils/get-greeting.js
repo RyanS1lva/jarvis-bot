@@ -14,24 +14,16 @@ export const getGreeting = (message) => {
   const hour = now.getHours();
 
   if (hour >= 6 && hour < 12) {
-    if (userGreeting == greetingKeywords[0]) {
-      return "Bom dia, senhor.";
-    }
+    return "Bom dia, senhor.";
   }
 
   if (hour >= 12 && hour < 18) {
-    if (userGreeting == greetingKeywords[1]) {
-      return "Boa tarde, senhor.";
-    }
+    return "Boa tarde, senhor.";
   }
 
   if (hour >= 18 && hour < 24) {
-    if (userGreeting == greetingKeywords[2]) {
-      return "Boa noite, senhor.";
-    }
+    return "Boa noite, senhor.";
   }
 
-  if (hour >= 24 && hour < 6) {
-    return "Trabalhado até mais tarde novamente senhor?";
-  }
+  return "Trabalhado até mais tarde novamente senhor?";
 };
