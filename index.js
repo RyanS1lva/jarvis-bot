@@ -13,6 +13,7 @@ const discordClient = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.Guilds,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers,
   ],
 });
 
@@ -63,5 +64,16 @@ discordClient.on("interactionCreate", async (interaction) => {
 
   if (interaction.commandName === "tempo") {
     getWeather(interaction);
+  }
+});
+
+discordClient.on("guildMemberAdd", (member) => {
+  const welcomeChannelId = process.env.DISCORD_CHANNEL_ID;
+  const channel = member.guild.channels.cache.get(welcomeChannelId);
+
+  if (channel && channel.isTextBased()) {
+    setTimeout(() => {
+      channel.send(`Seja muito bem-vindo ${member}! 🎈`);
+    }, 5000);
   }
 });
