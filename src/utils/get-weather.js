@@ -17,7 +17,7 @@ export const getWeather = async (interaction) => {
 
     if (temperature < 10) {
       advice =
-        "Está frio lá fora 🥶, recomendo que não saia de casa sem estar bem agasalhado ❄️🧣";
+        "Está frio lá fora 🥶, recomendo que não saia de casa sem estar bem agasalhado 🧣";
     } else if (temperature >= 10 && temperature < 18) {
       advice =
         "Está fresquinho lá fora 🍃, recomendo que leve um casaquinho se for sair 🧥";
