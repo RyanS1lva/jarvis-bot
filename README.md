@@ -5,8 +5,9 @@ J.A.R.V.I.S é um bot para Discord inspirado no assistente da Marvel, projetado 
 ## 📌 Funcionalidades
 
 - 👋 Saudações automáticas para novos membros  
-- 🌤️ Consulta de clima em tempo real via OpenWeatherMap API  
+- 🌤️ Consulta de clima em tempo real (OpenWeatherMap API)  
 - 🤖 Responde perguntas utilizando inteligência artificial (Gemini API)
+- 💸 Retorna a última cotação disponível do dólar em reais (Banco Central do Brasil API)
 - 🕹️ Comandos customizáveis com Slash Commands (`/`)  
 
 ---

@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const getWeather = async (interaction) => {
+  const city = interaction.options.getString("cidade");
+  
   try {
-    const city = interaction.options.getString("cidade");
-
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city},BR&appid=${process.env.WEATHER_API_KEY}&units=metric&lang=pt_br`
     );
@@ -46,5 +46,6 @@ export const getWeather = async (interaction) => {
     await interaction.reply(weatherMessage);
   } catch (e) {
     console.log(e);
+     await interaction.reply('infelizmente meu radar está com instabilidades senhor.');
   }
 };

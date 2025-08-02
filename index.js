@@ -7,6 +7,7 @@ import {
 } from "discord.js";
 
 import {
+  getDollar,
   getGemini,
   getGreeting,
   getWeather,
@@ -43,6 +44,11 @@ const commands = [
         .setDescription("Digite o contéudo a ser consultado na IA")
         .setRequired(true)
     ),
+  new SlashCommandBuilder()
+    .setName("dolar")
+    .setDescription(
+      "o bot consulta a última cotação do dólar para real disponível"
+    ),
 ].map((cmd) => cmd.toJSON());
 
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
@@ -78,14 +84,10 @@ discordClient.on("interactionCreate", async (interaction) => {
 
   if (interaction.commandName === "tempo") {
     getWeather(interaction);
-  }
-});
-
-discordClient.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-
-  if (interaction.commandName === "pense") {
+  } else if (interaction.commandName === "pense") {
     getGemini(interaction);
+  } else if (interaction.commandName === "dolar") {
+    getDollar(interaction);
   }
 });
 
