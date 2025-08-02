@@ -6,7 +6,12 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 
-import { getGreeting, getWeather, respondToThank } from "./src/utils/index.js";
+import {
+  getGemini,
+  getGreeting,
+  getWeather,
+  respondToThank,
+} from "./src/utils/index.js";
 
 const discordClient = new Client({
   intents: [
@@ -25,6 +30,17 @@ const commands = [
       option
         .setName("cidade")
         .setDescription("Digite o nome da cidade")
+        .setRequired(true)
+    ),
+  new SlashCommandBuilder()
+    .setName("pense")
+    .setDescription(
+      "o bot consulta o Gemini conforme o prompt enviado pelo usuário"
+    )
+    .addStringOption((option) =>
+      option
+        .setName("prompt")
+        .setDescription("Digite o contéudo a ser consultado na IA")
         .setRequired(true)
     ),
 ].map((cmd) => cmd.toJSON());
@@ -62,6 +78,14 @@ discordClient.on("interactionCreate", async (interaction) => {
 
   if (interaction.commandName === "tempo") {
     getWeather(interaction);
+  }
+});
+
+discordClient.on("interactionCreate", async (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "pense") {
+    getGemini(interaction);
   }
 });
 

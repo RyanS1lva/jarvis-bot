@@ -1,11 +1,12 @@
 # 🤖 J.A.R.V.I.S Bot
 
-J.A.R.V.I.S é um bot para Discord inspirado no assistente da Marvel, projetado para ser um companheiro útil no servidor. Ele oferece comandos como saudações automáticas, informações sobre o clima e outras funções para tornar sua comunidade mais interativa e funcional.
+J.A.R.V.I.S é um bot para Discord inspirado no assistente da Marvel, projetado para ser um companheiro útil no servidor. Ele oferece comandos como saudações automáticas, respostas utilizando inteligência artitificial, informações sobre o clima e outras funções para tornar sua comunidade mais interativa e funcional.
 
 ## 📌 Funcionalidades
 
 - 👋 Saudações automáticas para novos membros  
 - 🌤️ Consulta de clima em tempo real via OpenWeatherMap API  
+- 🤖 Responde perguntas utilizando inteligência artificial (Gemini API)
 - 🕹️ Comandos customizáveis com Slash Commands (`/`)  
 
 ---
@@ -42,6 +43,7 @@ DISCORD_TOKEN=DISCORD_TOKEN
 DISCORD_CHANNEL_ID=DISCORD_CHANNEL_ID
 APPLICATION_ID=APPLICATION_ID
 WEATHER_API_KEY=WEATHER_API_KEY
+GEMINI_API_KEY=GEMINI_API_KEY
 ```
 
 ### 4. Inicie a aplicação
